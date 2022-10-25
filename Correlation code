@@ -1,0 +1,20 @@
+function out = this()
+
+T = readtable('OSIEGMICE_Arc_cellcounts_batch1+2_TK_0108_density_102022_JS.xlsx','Sheet','Pearson''s_density_Arc','Range','B61:L66');
+
+
+names = T.Properties.VariableNames;
+
+names(1:2) = []; 
+
+matrix = zeros(0,0);
+
+for o = 1:9
+    for u = 1:9
+    result = corrcoef(T.(names{u}),T.(names{o}));
+    matrix(u,o) = result(1,2);
+    end
+    
+end 
+out = matrix;
+end
