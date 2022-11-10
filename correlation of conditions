@@ -1,0 +1,33 @@
+load('regions.mat'); % numeric array with the conditions names
+imagesc(e);  
+% names=[{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}]
+names{1}='1TL';
+names{2}='Day 1';
+names{3}='Day 5';
+names{4}='Day 8';
+names{5}='Day 9con';
+names{6}='Day 9incon';
+names{7}='Day 9incon-NN';
+names{8}='Day 9incon+N';
+names{9}='Day 10con';
+names{10}='Day 10incon-NN';
+names{11}='Day 10incon+N';
+names{12}='IDB';
+ax = gca;
+
+%%
+ax.XTick=[1:12];
+ax.YTick=[1:12];
+
+ax.XTickLabel = names;
+ax.YTickLabel = names;
+%%
+% ax.XAxisLocation = 'top';
+title('Correlation of conditons I cFos', 'FontSize', 45);
+
+shading interp;
+cmap=bluewhitered;
+
+colormap(cmap) %// set color map
+caxis([0.1 1])
+h=colorbar();
