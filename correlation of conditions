@@ -1,5 +1,5 @@
 load('regions.mat'); % numeric array with the conditions names
-imagesc(e);  
+imagesc(r);  
 % names=[{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}{'r1'} {'r2'}]
 names{1}='1TL';
 names{2}='Day 1';
