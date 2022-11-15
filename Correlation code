@@ -5,7 +5,7 @@ T = readtable('OSIEGMICE_Arc_cellcounts_batch1+2_TK_0108_density_102022_JS.xlsx'
 
 names = T.Properties.VariableNames;
 
-names(1:2) = []; 
+names(1:0) = []; 
 
 matrix = zeros(0,0);
 
