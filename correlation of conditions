@@ -13,7 +13,10 @@ names{9}='Day 10con';
 names{10}='Day 10incon-NN';
 names{11}='Day 10incon+N';
 names{12}='IDB';
+
 ax = gca;
+ax.XAxis.FontWeight = 'bold';
+ax.YAxis.FontWeight = 'bold';
 
 %%
 ax.XTick=[1:12];
@@ -25,6 +28,7 @@ ax.YTickLabel = names;
 % ax.XAxisLocation = 'top';
 title('Correlation of conditons I cFos', 'FontSize', 45);
 
+%in ordeer to obtain the colormap function the adritools must be downloaded and added to the path of the script, the link to the adritools is https://github.com/Aleman-Z/ADRITOOLS
 shading interp;
 cmap=bluewhitered;
 
