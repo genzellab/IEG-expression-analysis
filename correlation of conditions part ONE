@@ -1,0 +1,49 @@
+clc
+clear all 
+%first each matrix is loaded and given a name individually, so that they are saved in the workspace.
+load("d5.mat");
+d5=matrix;
+load('d8.mat');
+d8=matrix;
+load('d9con.mat');
+d9co=matrix;
+load('d10con.mat');
+d10co=matrix;
+load('d1.mat');
+d1=matrix;
+load('d10incon_NN.mat');
+d10in_nn=matrix;
+load('d9incon.mat');
+d9in=matrix;
+load('d9incon_NN.mat');
+d9in_nn=matrix;
+load('d10incon+N.mat');
+d10in_n=matrix;
+load('idb.mat');
+idb=matrix;
+load('1TL.mat');
+tl=matrix;
+load('d9incon+n.mat');
+d9in_n=matrix;
+
+%the given names are then combined into 1 matrix. The order in which the matrices are written here, will be the order that the data will have along x and y axes.
+%However if  the order of the of the matrices here is modified, the order of the label names has to be changed as well in the part 2 script.
+combined =[d5(:) d8(:) d1(:) d10in_n(:) d9co(:) d9in(:) d10in_nn(:) d10co(:) d9in_nn(:)  d9in_n(:) idb(:) tl(:)];
+
+
+% A nested for-loop is created to iterate across arrays and compute the correlation between themselves and the other arrays and accumulate them in a variable. 
+%This gives a 1x144 array which is then reshaped into a 12x12 matrix, this 12x12 matrix is the variable 'C' and it will be used as data set in the part 2 script
+
+C = [];
+ for g = 1:12
+     a=combined(:,g);
+     for h=1:12
+         d = corrcoef (a,combined(:,h));
+         C(g,h) = d(1,2);
+     end
+ end
+
+% A matrix is created to save all the elements that have been created in the workspace and then used in the part 2 script
+save('genear') 
+
+
