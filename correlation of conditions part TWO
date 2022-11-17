@@ -1,0 +1,41 @@
+load('geneexp.mat'); % Matrix with all the elements of the condition that one wants to create a heatmap for
+                      %This matrix is the last matrix generated with the part 1 of this script
+
+
+imagesc(C);  %'C' Is the variable that was assigned on the part 1 as the 12x12 data set that wil be expressed on the heatp map
+
+
+%IMPORTANT here the name of each variable for the x and y exes is written, the order used in here will be the order displayed  along the axis. 
+%This applies only for the order of the words/names, NOT the data, the data order can only be modified on the part 1 of the script
+names{1}='Day 9incon-NN', 
+names{2}='Day 10incon+N';
+names{3}='Day 5';
+names{4}='Day 10incon-NN';
+names{5}='Day 1';
+names{6}='Day 8';
+names{7}='Day 10con';
+names{8}='IDB';
+names{9}='Day 9 10incon+N';
+names{10}='Day 9incon';
+names{11}='Day 9con';
+names{12}='1TL';
+
+ax = gca; % ax = Get and set properties of the current axes. gca=creates a Cartesian axes object.
+ax.XAxis.FontWeight = 'bold'; %Makes the variable names along the x axis bold
+ax.YAxis.FontWeight = 'bold'; %Makes the variable names along the y axis bold
+%%
+ax.XTick=[1:12];%Sets the x-axis tick values, which are the locations along the y-axis where the tick marks appear. 
+ax.YTick=[1:12];%Sets the y-axis tick values, which are the locations along the y-axis where the tick marks appear. 
+
+ax.XTickLabel = names; %Sets the x-axis tick labels for the current axes. i,e gives the corresponding name to each variable
+ax.YTickLabel = names; %Sets the y-axis tick labels for the current axes. i,e gives the corresponding name to each variable
+%%
+title(' cFos, gene expression', 'FontSize', 45);%tittle features
+
+shading interp; %Varies the color in each line segment and face by interpolating the colormap index or true color value across the line or face.
+cmap=bluewhitered;%in ordeer to obtain the colormap function the adritools must be downloaded and added to the path of the script, the link to the adritools is https://github.com/Aleman-Z/ADRITOOLS
+
+
+colormap(cmap) %// set color map
+caxis([0.1 1]) % set the colourbar limits
+h=colorbar();% h is the variable name to save the colorbar in the workspace
