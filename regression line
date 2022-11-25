@@ -1,0 +1,24 @@
+clc
+clear all
+load('arcgeneexp.mat'); %gene expression matrix Arc
+geneexp=C;%assign a name for the C 12x12 matrix
+load('scale2ar.mat'); %novelty scale 2 matrix Arc
+novelty2=C;%assign a name for the C 12x12 matrix
+y=geneexp(:,12);
+x=novelty2(:,12);
+format long;
+b1=x/y;
+yCalc1 = b1*x;
+scatter(x,y)
+hold on
+plot(x,yCalc1)
+xlabel('Novelty scale II')
+ylabel('Gene Expression')
+set(gca,'FontWeight','bold')
+title('Arc, Linear Regression Relation Between Gene expression & Novelty scale II','FontSize',30)
+grid on
+X = [ones(length(x),1) x];
+b = X\y;
+yCalc2 = X*b;
+plot(x,yCalc2,'--')
+legend('Data','Slope','Slope & Intercept','Location','best');
