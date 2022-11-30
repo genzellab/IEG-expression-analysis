@@ -1,0 +1,9 @@
+clear all
+clc
+
+
+load(['genear.mat']) % load thefile that contains the matrix
+[R,P] = corrcoef(C) % write in the parentheses the name of the matrix you want to get the R and p values from
+ xlswrite('R and P values for Arc and c-fos.xlsx',R,'Ar','B52:M63') % write the name of the excel sheet you want to save the R values in,  
+  %followed by the sheet name and cell and row number
+ xlswrite('R and P values for Arc and c-fos.xlsx',P,'Ar','P52:AA63')% repeat the same step as before, this time to get the p values.
